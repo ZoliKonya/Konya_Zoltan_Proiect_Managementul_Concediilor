@@ -1,0 +1,62 @@
+﻿@page
+@model Konya_Zoltan_Proiect_Managementul_Concediilor.Pages.Angajati.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Angajat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Angajat.FirstName" class="control-label"></label>
+                <input asp-for="Angajat.FirstName" class="form-control" />
+                <span asp-validation-for="Angajat.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.LastName" class="control-label"></label>
+                <input asp-for="Angajat.LastName" class="form-control" />
+                <span asp-validation-for="Angajat.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.DepartamentID" class="control-label"></label>
+                <select asp-for="Angajat.DepartamentID" class ="form-control" asp-items="ViewBag.DepartamentID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.FunctieID" class="control-label"></label>
+                <select asp-for="Angajat.FunctieID" class ="form-control" asp-items="ViewBag.FunctieID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.Adress" class="control-label"></label>
+                <input asp-for="Angajat.Adress" class="form-control" />
+                <span asp-validation-for="Angajat.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.Email" class="control-label"></label>
+                <input asp-for="Angajat.Email" readonly class="form-control" />
+                <span asp-validation-for="Angajat.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Angajat.Phone" class="control-label"></label>
+                <input asp-for="Angajat.Phone" class="form-control" />
+                <span asp-validation-for="Angajat.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

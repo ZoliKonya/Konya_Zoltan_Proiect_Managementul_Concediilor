@@ -1,0 +1,49 @@
+﻿@page
+@model Konya_Zoltan_Proiect_Managementul_Concediilor.Pages.Departamente.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Departamente</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Departament[0].NrCrt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departament[0].NrDepartament)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departament[0].NumeDepartament)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Departament)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrCrt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrDepartament)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeDepartament)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

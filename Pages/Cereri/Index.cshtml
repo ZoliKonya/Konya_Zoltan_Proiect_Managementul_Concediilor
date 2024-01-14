@@ -1,0 +1,79 @@
+﻿@page
+@model Konya_Zoltan_Proiect_Managementul_Concediilor.Pages.Cereri.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cereri</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cerere[0].NrCrt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cerere[0].Angajat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cerere[0].Departament)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cerere[0].Functie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cerere[0].CategorieCerere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cerere[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cerere[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cerere[0].StareCerere)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Cerere)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrCrt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Angajat.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departament.NumeDepartament)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Functie.NumeFunctie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategorieCerere.NumeCategorieCerere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StareCerere.NumeStareCerere)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

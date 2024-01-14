@@ -1,0 +1,49 @@
+﻿@page
+@model Konya_Zoltan_Proiect_Managementul_Concediilor.Pages.Stari.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Stari</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StareCerere[0].NrCrt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StareCerere[0].NrStareCerere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StareCerere[0].NumeStareCerere)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.StareCerere)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrCrt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrStareCerere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeStareCerere)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
